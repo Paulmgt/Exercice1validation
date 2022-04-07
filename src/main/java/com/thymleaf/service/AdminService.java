@@ -36,10 +36,10 @@ public class AdminService  {
 		return adminRepo.findAll();
 	}
 	
-	public List<Admin> filtreNomComplet(String nomComplet){
+	public Admin filtreNomComplet(String nomComplet){
 		
 		
-		return adminRepo.findByNomComplet(nomComplet);
+		 return adminRepo.findByNomComplet(nomComplet);
 	}
 
 	

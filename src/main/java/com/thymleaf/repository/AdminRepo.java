@@ -10,7 +10,7 @@ public interface AdminRepo extends JpaRepository<Admin, String> {
 
 	
 	public Admin findByLogin(String login);
-	List<Admin> findByNomComplet(String nomComplet);
+	public Admin findByNomComplet(String nomComplet);
 	
 	
 	

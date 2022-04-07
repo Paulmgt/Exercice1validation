@@ -40,12 +40,19 @@
 <div class="alert alert-warning"
 				th:if="${#fields.hasErrors('retour')}" th:errors="*{retour}"></div>
 </div>
+
 <div class="mb-3">
   <label  class="form-label">Responsable</label>
-  <input type="text" class="form-control" th:field="*{admin}" name="admin"  placeholder="votre responsable ici">
-<div class="alert alert-warning"
-				th:if="${#fields.hasErrors('admin')}" th:errors="*{admin}"></div>
+  <select class="form-select" aria-label="Disabled select example" th:name="nom">
+  
+  <option th:each="ad : ${admins}" th:value="${ad.nomComplet}" 
+       th:text="${ad.nomComplet}">
+       
+      </option>
+  </select>
+  
 </div>
+
 <div class="mb-3">
   <label  class="form-label">Description</label>
   <textarea type="text" class="form-control" th:field="*{description}" name="description"  placeholder="votre description ici"></textarea>
