@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -59,10 +60,16 @@ public class SecurityConfiig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception { 
 		http.formLogin();
-		http.csrf().disable();
+		http.csrf().disable(); 
 		
-		http.authorizeRequests().antMatchers("/login/**").permitAll(); // les url sont autorisé pour tout le monde (sans authentification)
-		http.authorizeRequests().antMatchers("/sortie/**").hasRole("GUIDE"); // POST à l'url tasks/**  peut être effectuer uniquement par l'admin
+		http.authorizeRequests().antMatchers("/").permitAll();
+		http.authorizeRequests().antMatchers("/login/**").permitAll();// les url sont autorisé pour tout le monde (sans authentification)
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/recommforuser/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/sortieforuser/**").permitAll();
+		http.authorizeRequests().antMatchers("/evaluation/**").permitAll();
+		  // POST à l'url tasks/**  peut être effectuer uniquement par l'admin
+		
+		http.authorizeRequests().antMatchers("/evaltable/**").hasRole("ORGANISATEUR");
 		http.authorizeRequests().antMatchers("/recommandation/**").hasRole("GUIDE");
 		http.authorizeRequests().antMatchers("/sortie/**").hasRole("ORGANISATEUR");
 		http.authorizeRequests().antMatchers("/recommandation/**").hasRole("ORGANISATEUR");

@@ -10,7 +10,7 @@ import com.thymleaf.model.Admin;
 import com.thymleaf.repository.AdminRepo;
 
 @Service
-public class AdminService {
+public class AdminService  {
 
 	
 	@Autowired
@@ -21,14 +21,14 @@ public class AdminService {
 		return adminRepo.save(a);
 	}
 
-	public Optional<Admin> searchById(String id) {
-		return adminRepo.findById(id);
+	public Optional<Admin> searchById(String login) {
+		return adminRepo.findById(login);
 
 	}
 
-	public void delete(String id) {
+	public void delete(String login) {
 
-		adminRepo.deleteById(id);
+		adminRepo.deleteById(login);
 	}
 
 	public List<Admin> SelectAll() {
@@ -41,6 +41,10 @@ public class AdminService {
 		
 		return adminRepo.findByNomComplet(nomComplet);
 	}
+
+	
+
+	
 	
 	
 }

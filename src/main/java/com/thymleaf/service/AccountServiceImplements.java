@@ -1,5 +1,7 @@
 package com.thymleaf.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.thymleaf.model.Admin;
+import com.thymleaf.model.Evaluation;
 import com.thymleaf.model.Role;
 import com.thymleaf.repository.AdminRepo;
 import com.thymleaf.repository.RoleRepo;
@@ -65,5 +68,7 @@ public class AccountServiceImplements implements AccountService {
 		// TODO Auto-generated method stub
 		return adminRepo.findByLogin(login);
 	}
+	
 
+	
 }

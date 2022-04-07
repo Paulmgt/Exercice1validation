@@ -2,6 +2,7 @@ package com.thymleaf.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,8 @@ import javax.persistence.Lob;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 
 
 @Entity
@@ -26,7 +29,7 @@ public class Evaluation implements Serializable {
 	private String titre;
 	
 	@NotNull(message= "veuillez remplir ce champs")
-	@Size(min= 1, max= 5)
+	@Column(length = 5)
 	private int note;
 	
 	@NotEmpty(message= "veuillez remplir ce champs")
@@ -75,6 +78,10 @@ public class Evaluation implements Serializable {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	
+
+	
 
 	
 

@@ -13,4 +13,5 @@ public interface AdminRepo extends JpaRepository<Admin, String> {
 	List<Admin> findByNomComplet(String nomComplet);
 	
 	
+	
 }

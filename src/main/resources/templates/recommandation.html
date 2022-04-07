@@ -24,7 +24,8 @@
 </div>
 <div class="mb-3">
   <label  class="form-label">Texte</label>
-  <input type="text"  class="form-control" th:field="*{texte}" name="texte"  placeholder="votre texte ici">
+  <textarea type="text"  class="form-control" th:field="*{texte}" name="texte"  placeholder="votre texte ici"></textarea>
+  
   <div class="alert alert-warning"
 				th:if="${#fields.hasErrors('texte')}" th:errors="*{texte}"></div>
 </div>
